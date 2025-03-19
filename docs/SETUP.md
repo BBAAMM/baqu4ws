@@ -17,12 +17,25 @@ sudo chown 501:20 /opt/mamba
 Micromamba binary folder? [~/.local/bin] ~/.local/bin
 Init shell (bash/zsh)? [Y/n] n
 Configure conda-forge? [Y/n] Y
-Prefix location? [~/micromamba] /opt/mamba
 ```
-## Micromamba 환경 구축
+### Micromamba 환경 변수 설정
+```sh
+# ~/.bashrc 하단에 다음과 같이 입력
+export PATH="$HOME/.local/bin:$PATH"
+export MAMBA_ROOT_PREFIX=/opt/mamba
+# 저장 후 source ~/.bashrc 할 것
+```
+```bash
+# Root prefix 새로 고침
+micromamba update
+# base가 /opt/mamba로 되어있는지 확인
+micromamba env list
+```
+
+### Micromamba 환경 구축
 ```bash
 # ROS2 Humble Micromamba 환경 구축
-micromamba create -n ros2 python=3.11 -c conda-forge -c robostack-staging ros-humble-desktop
+micromamba create -n ros2 python=3.11 -c conda-forge -c robostack-staging ros-humble-desktop-full
 
 # ROS2 Humble Micromamba 환경 활성화
 micromamba activate ros2
@@ -31,7 +44,7 @@ micromamba activate ros2
 micromamba install -c conda-forge compilers cmake pkg-config make ninja colcon-common-extensions catkin_tools rosdep
 ```
 
-## Micromamba 환경 로드 및 ROS2 Humble 로드
+### Micromamba 환경 로드 및 ROS2 Humble 로드
 - 새로운 터미널을 열거나 재실행시 해야함
 ```bash
 micromamba activate ros2
@@ -40,15 +53,16 @@ source /opt/mamba/envs/ros2/setup.sh
 - 해당 작업을 매번하기 어렵기 때문에 rc 스크립트 작성
 ```sh
 # ~/.ros2rc 파일에 작성
-export MAMBA_EXE=$HOME/.local/bin/micromamba
+# MAMBA_ROOT_PREFIX 설정은 .bashrc과 .ros2rc 중, 하나에만 남겨도 가능
 export MAMBA_ROOT_PREFIX=/opt/mamba
 export ROSDEP_SOURCE_PATH=/opt/mamba/envs/ros2/etc/rosdep
 
-$MAMBA_EXE shell hook --shell ${SHELL} --root-prefix $MAMBA_ROOT_PREFIX | source
+eval "$(micromamba shell hook --shell bash)"
 
 micromamba activate ros2
 source /opt/mamba/envs/ros2/setup.sh
 ```
+
 - 다음과 같이 간단히 로드 가능
 ```bash
 source ~/.ros2rc
