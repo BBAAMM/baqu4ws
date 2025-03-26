@@ -2,8 +2,28 @@
 	path = src/perception/perception_py
   url = git@github.com:baqu4-2025-driverless/perception_py
   branch = main
-
 [submodule "src/perception/clustering_cxx"]
 	path = src/perception/clustering_cxx
 	url = git@github.com:baqu4-2025-driverless/clustering_cxx
   branch = main
+
+[submodule "src/slam/eigen"]
+	path = src/slam/eigen
+	url = git@github.com:baqu4-2025-driverless/eigen.git
+	branch = main
+[submodule "src/slam/glim"]
+	path = src/slam/glim
+	url = git@github.com:baqu4-2025-driverless/glim.git
+	branch = master
+[submodule "src/slam/glim_ros2"]
+	path = src/slam/glim_ros2
+	url = git@github.com:baqu4-2025-driverless/glim_ros2.git
+	branch = master
+[submodule "src/slam/gtsam"]
+	path = src/slam/gtsam
+	url = git@github.com:baqu4-2025-driverless/gtsam.git
+	branch = release/4.2
+[submodule "src/slam/gtsam_points"]
+	path = src/slam/gtsam_points
+	url = git@github.com:baqu4-2025-driverless/gtsam_points.git
+	branch = master
