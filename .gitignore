@@ -382,5 +382,4 @@ AMENT_IGNORE
 # End of https://www.toptal.com/developers/gitignore/api/c,c++,cmake,linux,macos,ros,ros2,python
 
 # Modified files in ./src/
-src/
-rosbag/
+fusion/
