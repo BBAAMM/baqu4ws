@@ -1,4 +1,4 @@
-# ROS2 Humble 개발환경 구축하기
+# ROS2 Jazzy 개발환경 구축하기 (Ubuntu 24.*)
 
 ## Micromamba 설치
 ```bash
@@ -22,7 +22,6 @@ Configure conda-forge? [Y/n] Y
 ```sh
 # ~/.bashrc 하단에 다음과 같이 입력
 export PATH="$HOME/.local/bin:$PATH"
-export MAMBA_ROOT_PREFIX=/opt/mamba
 # 저장 후 source ~/.bashrc 할 것
 ```
 ```bash
@@ -35,7 +34,7 @@ micromamba env list
 ### Micromamba 환경 구축
 ```bash
 # ROS2 Humble Micromamba 환경 구축
-micromamba create -n ros2 python=3.11 -c conda-forge -c robostack-staging ros-humble-desktop-full
+micromamba create -n ros2 python=3.11 -c conda-forge -c robostack-jazzy ros-jazzy-desktop-full
 
 # ROS2 Humble Micromamba 환경 활성화
 micromamba activate ros2
@@ -53,7 +52,6 @@ source /opt/mamba/envs/ros2/setup.sh
 - 해당 작업을 매번하기 어렵기 때문에 rc 스크립트 작성
 ```sh
 # ~/.ros2rc 파일에 작성
-# MAMBA_ROOT_PREFIX 설정은 .bashrc과 .ros2rc 중, 하나에만 남겨도 가능
 export MAMBA_ROOT_PREFIX=/opt/mamba
 export ROSDEP_SOURCE_PATH=/opt/mamba/envs/ros2/etc/rosdep
 
