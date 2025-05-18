@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 colcon build \
   --merge-install \
-  --symlink-install \
   --event-handlers console_cohesion+ \
   --cmake-args \
     -DCMAKE_BUILD_TYPE=Release \
@@ -9,6 +8,8 @@ colcon build \
     -DQT_HOST_PATH="/opt/mamba/envs/ros2" \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
     -DCMAKE_INSTALL_PATH=/usr/include \
+    -DOPENGL_opengl_LIBRARY=/usr/lib/x86_64-linux-gnu/libGL.so \
+    -DOPENGL_glx_LIBRARY=/usr/lib/x86_64-linux-gnu/libGLX.so \
     -DBUILD_TESTS=OFF \
     -DBUILD_TESTS_PCL=OFF \
     -DBUILD_DEMO=OFF \
