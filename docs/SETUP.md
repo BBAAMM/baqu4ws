@@ -43,7 +43,7 @@ micromamba activate ros2
 micromamba install -c conda-forge compilers cmake pkg-config make ninja colcon-common-extensions catkin_tools rosdep
 ```
 
-### Micromamba 환경 로드 및 ROS2 Humble 로드
+### Micromamba 환경 로드 및 ROS2 Jazzy 로드
 - 새로운 터미널을 열거나 재실행시 해야함
 ```bash
 micromamba activate ros2
