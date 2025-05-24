@@ -7,7 +7,11 @@
 	path = src/perception/clustering_cxx
 	url = git@github.com:baqu4-2025-driverless/clustering_cxx.git
 	pushurl = git@github.com:BBAAMM/clustering_cxx.git
-  	branch = main
+  branch = main
+[submodule "src/slam/glim_ext"]
+  path = src/slam/glim_ext
+  url = git@github.com:BBAAMM/glim_ext.git
+  branch=main
 
 [submodule "src/slam/eigen"]
 	path = src/slam/eigen
@@ -31,4 +35,4 @@
 [submodule "src/slam/gtsam_points"]
 	path = src/slam/gtsam_points
 	url = git@github.com:baqu4-2025-driverless/gtsam_points.git
-	branch = master
+  branch = master
